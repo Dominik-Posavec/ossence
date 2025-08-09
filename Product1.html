@@ -1,0 +1,423 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ossence Product Template</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      color: #2ceaff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5rem;
+      text-align: center;
+      background: linear-gradient(
+        115deg,
+       
+        #114469 0%,
+        #024e63 15%,
+        #404911 30%,
+        #3c5403 45%,
+        #024f65 60%
+      );
+      background-size: 350% 100%;
+      animation: backgroundSlide 60s linear infinite;
+    }
+
+    @keyframes backgroundSlide {
+      0%   { background-position: 0% 0%; }
+      50%  { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: #a3faff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .text-content {
+      flex: 1 1 500px;
+      margin: 0 auto;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    p.description {
+      font-size: 1.9rem;
+      margin: 0 auto 2rem auto;
+      line-height: 1.8;
+      font-weight: 400;
+      color: #a3faff;
+      max-width: 700px;
+    }
+
+    a.button {
+      background: #2ceaff;
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 400px;
+      font-weight: 700;
+      text-decoration: aquamarine;
+      font-size: 1.4rem;
+      box-shadow: 0 7px 20px rgba(44, 234, 255, 0.5);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #00bcd4;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0, 188, 212, 0.8);
+    }
+
+    .cta-subtext {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+      color: #a3faff;
+      font-weight: 500;
+    }
+
+    p.security-note {
+      margin-top: 3rem;
+      max-width: 900px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #a3faff;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    .slideshow-container {
+      flex: 1 1 300px;
+      max-width: 300px;
+      height: auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      position: relative;
+      margin-left: 2rem; /* dodan prostor između slike i teksta */
+      border-left: 2px solid #ccc;
+    padding-left: 20px;
+    background-color: #f9f9f9;
+
+    }
+
+    .slideshow-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .slideshow-container img.active {
+      display: block;
+      animation: flipIn 1s ease-in-out;
+    }
+
+    @keyframes flipIn {
+  from { transform: rotateY(90deg); opacity: 0; }
+  to { transform: rotateY(0); opacity: 1; }
+}
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #cfd8dc;
+      padding: 1rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+
+      .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #222;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      z-index: 9999;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    }
+    a.button {
+      background: #ffff00cc;
+      color: #00485e;
+      padding: 1rem 2rem;
+      border-radius: 400px;
+      font-weight: 700;
+      text-decoration: rgb(0, 140, 255);
+      font-size: 1.4rem;
+      box-shadow: 0 7px 20px rgba(44, 234, 255, 0.5);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #00ae74;
+      color:rgb(0, 19, 163)f;
+      box-shadow: 0 10px 30px rgba(0, 188, 212, 0.8);
+    }
+    .cookie-banner button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .cookie-banner button:hover {
+      background-color: #45a049;
+    }
+
+</style>
+
+  <link rel="icon" type="image/png" href="OssenceLogoNoBg.png">
+  <link rel="apple-touch-icon" href="OssenceLogoNoBg.png">
+
+</head>
+<body>
+  <nav>
+    <div class="brand">
+      <img src="OssenceLogo.png" alt="Ossence">
+      <span class="brand-name">Ossence</span>
+    </div>
+    <a href="AboutUs.html">About Us</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="PrivacyAndTerms.html">Privacy & Terms</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="Ossence Home Page.html" >Home Page</a>
+    <a href="Categories.html" >Categories</a>
+
+  </nav>
+
+  <div class="main-content">
+    <div class="text-content">
+      <h1>Ossence</h1>
+      <p class="description">Your Trusted Shopping Companion</p>
+      
+
+      <p class="security-note">
+        
+        <strong style="font-size: 40px;">Nike Air Vapormax</strong><br>
+        New Nike Air Vapormax TN Plus Triple Black comfortable men's shoes. Free Shipping.<br>
+        <br>
+<img src="Product1.webp" alt="Nike" width="700" style="border-radius: 25px; box-shadow: 0 0 20px rgba(251, 255, 0, 0.8);">
+
+        <strong style="font-size: 40px;"><br> Review</strong><br>
+          The warehouse order volume is too large, which needs 4-5 working
+days to process (not within the logistics time). 2.Free delivery, choose
+the most economical distribution logistics, such as natural weather,
+human factors, logistics system and remote areas, booking time is roughly
+one to two weeks, more than two weeks to give corresponding compensation.
+3. Confirm that your delivery address is correct before purchase,
+logistics can not change the address, such as lost items buyers bear the
+cost. <br>
+         <br><strong style="font-size: 40px;">WE BASE OUR REVIEW ON:</strong><br>
+              ✅ Return after sale <br>
+              ✅ Free delivery<br>
+              ✅ Multiple warehouses <br><br>
+              <p>
+                <h2>OBJECTIVE RATING:</h2>
+  <span style="font-size: 50px;">
+    ★★★⯪☆
+  </span>
+</p>
+  </a>
+<br><br>
+              FOR MORE INFO CLICK THE BUTTON BELOW: <br><br><BR>
+
+            <a href="https://www.ebay.com/itm/286672361749?itmmeta=01K25YH8DX19DA
+              R750PAKQYWXT&hash=item42bf011915:g:zpIAAOSwrnhoWX1o&itmprp=enc%3AAQAK
+              AAAA4MHg7L1Zz0LA5DYYmRTS30mnOOFgh7QsAyN8%2FtYQDq%2B8%2FXiSSj8yBvnp1QVn
+              k2MWK3OiI%2BVT8KlKUVXkXRPK1EdpzOdUBSnCttg8uMR3%2B%2Fh4fhXU1S16vMFC4xN7
+              CSUj%2Bs6IHpzgN2R5RMW8bfXZyOwNqZbikvDuh2nG2ffXnVv8VIO42xu71g5FtExYCu0
+              w2uDBxrJbpdOEXcKdVnMqzvU4DvmM4d7WklwACIQ59Yiy%2BlvwnzWapllGxS9lrKu%2B
+              C2wx949IsMlCyBtravynafQDLGXLsCHU%2FrLh8J9kX567%7Ctkp%3ABFBMiofFvpFm&v
+              ar=588697354518" class="button">Nike Air Vapormax</a>
+
+
+<p style="font-size: 0.4rem; color: #6ce9ff;">
+    
+<br><br><br>
+  </p>
+          *Note: Some links on Ossence are affiliate links, 
+which means we may earn a small commission if you 
+make a purchase — at no extra cost to you. This 
+helps support our work and allows us to keep curating 
+quality recommendations.*    
+      </p>
+    </div>
+
+   <div class="slideshow-container">
+  <a href="https://www.example.com/product1" target="_blank" rel="noopener noreferrer">
+    <img src="c:\Users\possa\Downloads\Whirlpool 4.0 cu ft Refrigerator WH40S1E - Stainless Steel Mini Fridge, Energy Star, Reversible Door, 68.34.png" class="active" alt="Slideshow 1">
+  </a>
+  <a href="https://www.example.com/product2" target="_blank" rel="noopener noreferrer">
+    <img src="c:\Users\possa\Downloads\Whirlpool 4.0 cu ft Refrigerator WH40S1E - Stainless Steel Mini Fridge, Energy Star, Reversible Door, 68.34 (1).png" alt="Slideshow 2">
+  </a>
+  <a href="c:\Users\possa\Downloads\download (1).jpg" target="_blank" rel="noopener noreferrer">
+    <img src="download (1).jpg" alt="Slideshow 3">
+  </a>
+  <a href="https://www.example.com/product4" target="_blank" rel="noopener noreferrer">
+    <img src="c:\Users\possa\Documents\THUMBNAILS\download (1).jpg" alt="Slideshow 4">
+  </a>
+  <a href="https://www.example.com/product5" target="_blank" rel="noopener noreferrer">
+    <img src="c:\Users\possa\Documents\THUMBNAILS\download (3).jpg" alt="Slideshow 5">
+  </a>
+
+</div>
+
+  </div>
+
+  <footer>
+
+<strong>About Us</strong> <br>
+Ossence is a personal project.<br>
+📧 Contact: ossencestore.contact@gmail.com
+<br>
+<hr>
+<strong>Affiliate Disclosure</strong> <br>
+Some links may earn us a small commission at no extra cost to you.
+<br>
+Thank you for supporting independent content! <br><br>
+
+    &copy; 2025 Ossence — All rights reserved.
+  </footer>
+
+  <script>
+    const images = document.querySelectorAll('.slideshow-container img');
+    let index = 0;
+
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 4000);
+
+  
+    // Funkcija za prihvaćanje kolačića
+    function acceptCookies() {
+      document.getElementById("cookie-banner").style.display = "none";
+      // Po želji: spremi odluku u localStorage
+      localStorage.setItem("cookiesAccepted", "true");
+    }
+
+    // Provjeri je li korisnik već prihvatio kolačiće
+    window.onload = function() {
+      if (localStorage.getItem("cookiesAccepted") === "true") {
+        document.getElementById("cookie-banner").style.display = "none";
+      }
+    }
+  </script>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <span>We use cookies to improve your experience. By using our site, you accept our cookie policy.</span>
+    <button onclick="acceptCookies()">Accept</button>
+  </div>
+
+</body>
+</html>
+
+
+
+<!--        
+        
+
+        <strong style="font-size: 40px;">Nike Air Vapormax</strong><br>
+        New Nike Air Vapormax TN Plus Triple Black comfortable men's shoes. Free Shipping.<br>
+        <br>
+<img src="Product1.webp" alt="Nike" width="700" style="border-radius: 25px; box-shadow: 0 0 20px rgba(251, 255, 0, 0.8);">
+
+        <strong style="font-size: 40px;"><br> Review</strong><br>
+          The warehouse order volume is too large, which needs 4-5 working
+days to process (not within the logistics time). 2.Free delivery, choose
+the most economical distribution logistics, such as natural weather,
+human factors, logistics system and remote areas, booking time is roughly
+one to two weeks, more than two weeks to give corresponding compensation.
+3. Confirm that your delivery address is correct before purchase,
+logistics can not change the address, such as lost items buyers bear the
+cost. <br>
+         <br><strong style="font-size: 40px;">WE BASE OUR REVIEW ON:</strong><br>
+              ✅ Return after sale <br>
+              ✅ Free delivery<br>
+              ✅ Multiple warehouses <br><br>
+              <p>
+                <h2>OBJECTIVE RATING:</h2>
+  <span style="font-size: 50px;">
+    ★★★⯪☆
+  </span>
+</p>
+  </a> 
+  
+       -->        

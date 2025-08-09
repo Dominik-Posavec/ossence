@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ossence Categories</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      color: #2ceaff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5rem;
+      text-align: center;
+      background: linear-gradient(
+        115deg,
+       
+        #114469 0%,
+        #024e63 15%,
+        #404911 30%,
+        #3c5403 45%,
+        #024f65 60%
+      );
+      background-size: 350% 100%;
+      animation: backgroundSlide 60s linear infinite;
+    }
+
+    @keyframes backgroundSlide {
+      0%   { background-position: 0% 0%; }
+      50%  { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    }
+
+        nav a {
+      color: #a3faff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-top: 6rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+
+    ul.categories {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 900px;
+      padding: 0;
+      width: 100%;
+    }
+
+    ul.categories li {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      flex: 0 0 21%;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.25s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #a3faff;
+      min-width: 180px;
+      text-align: center;
+    }
+
+    ul.categories li:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.4);
+    }
+
+    ul.categories li a {
+      color: inherit;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    p.security-note {
+      margin-top: 3rem;
+      max-width: 900px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #a3faff;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #cfd8dc;
+      padding: 1rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+    .slideshow-container {
+        height: 300px;
+        margin-left: 0; /* ukloni marginu na manjim ekranima */
+      }
+
+    @media (max-width: 720px) {
+      ul.categories li {
+        flex: 0 0 45%;
+        min-width: unset;
+      }
+    }
+
+    @media (max-width: 400px) {
+      ul.categories li {
+        flex: 0 0 90%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body {
+        animation: none;
+      }
+    }
+      @media (max-width: 768px) {
+    .slideshow-container {
+      height: 240px;
+    }
+  }
+
+  
+#categoryGrid a {
+  color: #2ceaff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: block;
+  margin: 0rem 0;
+  text-decoration: none;
+  
+  /* Dodano za pravokutnik */
+  border: 1px solid #2ceaff; /* tanka plava linija kao okvir */
+  padding: 0.5rem 17rem;       /* prostor unutar okvira */
+  border-radius: 0px;        /* blago zaobljeni uglovi za estetiku */
+  
+  /* Horizontalna linija kao donji border, osim za zadnji element */
+  border-bottom: 1px solid #2ceaff;
+}
+
+#categoryGrid a:hover {
+
+  color: #ffffff; /* tekst postaje bijel */
+  text-shadow: 0 0 2px #ffffff; /* lagani sjaj oko teksta */
+  cursor: pointer; /* pokazivač miša postaje ruka - simbol interaktivnosti */
+  background-color: #1ca1b0; /* možeš dodati i pozadinsku boju za kontrast */
+  transition: color 0.5s ease, text-shadow 0.5s ease, background-color 0.5s ease; /* glatka animacija */}
+
+
+#search {
+  background-color: #222;        /* pozadinska boja */
+  color: #2ceaff;                /* boja teksta unutar inputa */
+  border: 2px solid #2ceaff;    /* obrub */
+  border-radius: 400px;           /* zaobljenje kutova */
+  padding: 0.8rem 1rem;          /* unutarnji razmak */
+  font-size: 1rem;               /* veličina fonta */
+  width: 80%;
+  max-width: 400px;
+  outline: none;                 /* ukloni plavi obrub na fokusu */
+  transition: border-color 0.3s ease;
+}
+
+#search::placeholder {
+  color: #6ce9ff;                /* boja placeholder teksta */
+}
+
+#search:focus {
+  border-color: #00bcd4;         /* obrub pri fokusu */
+  background-color: #111;        /* malo tamnija pozadina pri fokusu */
+}
+/* Search suggestion container */
+#suggestion-box {
+  position: absolute;
+  background: #111; /* dark theme to match your style */
+  border: 1px solid #2ceaff;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  margin-top: 0.2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  overflow: hidden;
+  display: none; /* hidden by default */
+  z-index: 1000;
+}
+
+/* Each suggestion item */
+.suggestion-item {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  color: #2ceaff;
+  background: #111;
+  transition: background 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background: rgba(44,234,255,0.15);
+}
+
+
+  </style>
+
+  <link rel="icon" type="image/png" href="OssenceLogoNoBg.png">
+  <link rel="apple-touch-icon" href="OssenceLogoNoBg.png">
+</head>
+<body>
+
+  <!-- Navigacija s logom, imenom i linkovima -->
+  <nav>
+        <div class="brand">
+      <img src="OssenceLogo.png" alt="Ossence">
+      <span class="brand-name">Ossence</span>
+    </div>
+    <a href="AboutUs.html">About Us</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="PrivacyAndTerms.html">Privacy & Terms</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="Ossence Home Page.html" >Home Page</a>
+
+  </nav>
+
+  <h1>Product Categories</h1>
+
+
+  <input type="text" id="search" placeholder="Search Ossence — anything from furniture to games" 
+  style="margin: 2rem auto; padding: 0.8rem; font-size: 1rem; width: 80%; max-width: 700px;">
+  
+
+<div class="category-grid" id="categoryGrid">
+  <a href="#">Top Offers</a>
+  <a href="#">Fashion</a>
+  <a href="#">Home & Living</a>
+  <a href="#">Sports & Outdoors</a>
+  <a href="#">Beauty & Health</a>
+  <a href="#">Toys & Games</a>
+  <a href="#">Automotive</a>
+  <a href="#">Books & Media</a>
+  <a href="#">Kitchen & Dining</a>
+  <a href="#">Pet Supplies</a>
+  <!-- i ostale -->
+</div>
+
+  <!-- Suggestion Box -->
+  <div id="suggestion-box"></div>
+</div>
+
+  <p style="font-size: 0.7rem; color: #6ce9ff;">
+    *Some of the links on this site are affiliate links, meaning we may earn a small 
+    commission if you make a purchase — at no extra cost to you. 
+    This helps support the site and allows us to continue providing content.<br><br>
+  <ul class="categories">
+    <li><a href="products-electronics.html">Top Offers</a></li>
+    <li><a href="products-fashion.html">Fashion</a></li>
+    <li><a href="products-home.html">Home &amp; Living</a></li>
+    <li><a href="products-sports.html">Sports &amp; Outdoors</a></li>
+    <li><a href="products-beauty.html">Beauty &amp; Health</a></li>
+    <li><a href="products-toys.html">Toys &amp; Games</a></li>
+    <li><a href="products-automotive.html">Automotive</a></li>
+    <li><a href="products-books.html">Books &amp; Media</a></li>
+    <li><a href="products-garden.html">Garden &amp; Outdoors</a></li>
+    <li><a href="products-kitchen.html">Kitchen &amp; Dining</a></li>
+    <li><a href="products-pets.html">Pet Supplies</a></li>
+    <li><a href="products-office.html">Office Supplies</a></li>
+    <li><a href="products-music.html">Music Instruments</a></li>
+    <li><a href="products-travel.html">Travel &amp; Luggage</a></li>
+    <li><a href="products-baby.html">Baby Products</a></li>
+    <li><a href="products-gadgets.html">Gadgets &amp; Accessories</a></li>
+  </ul>
+
+   <p class="security-note">
+        
+        <strong style="font-size: 27px;">Why Ossence?</strong><br>
+            At Ossence, your trust is our top priority.
+            We handpick every product based on real user reviews, 
+            trusted brands, and our own research — only recommending what we'd personally buy ourselves.<br>
+        <br>
+        <strong style="font-size: 27px;">Secure & Trusted:</strong><br>
+          We're proud to partner with reputable affiliate networks like CJ Affiliate, 
+          Rakuten Advertising, and other industry leaders.<br>
+          To ensure your peace of mind: <br>
+              ✅ All purchases are made on the official websites of the brands we recommend <br>
+              ✅ These sites use SSL encryption, fraud monitoring, 2FA, and are often SOC 2 compliant<br>
+              ✅ Ossence does not handle payments or personal data<br>
+              🛒 Shop confidently — we guide you only to verified sellers.
+      </p>
+
+    <footer>
+      <strong>About Us</strong> <br>
+Ossence is a personal project.<br>
+📧 Contact: ossencestore.contact@gmail.com
+<br>
+<hr>
+<strong>Affiliate Disclosure</strong> <br>
+Some links may earn us a small commission at no extra cost to you.
+<br>
+Thank you for supporting independent content! <br><br>
+    &copy; 2025 Ossence — All rights reserved. <br>
+    <a href="Ossence Home Page.html" style="color:#2ceaff; font-weight: 600; text-decoration: none;">Go to Home Page</a>
+  </footer>
+
+<script>
+const searchInput = document.getElementById("search");
+const categories = document.querySelectorAll("#categoryGrid a");
+
+// Poruke koje će se izmjenjivati u placeholderu
+const messages = [
+  "Search Ossence — anything from electronics to fashion",
+  "Search Ossence — anything from books to gadgets",
+  "Search Ossence — anything from self-care to home decor",
+  "Search Ossence — anything from toys to tools",
+  "Search Ossence — anything from accessories to appliances",
+  "Search Ossence — anything from sports gear to sustainable living",
+  "Search Ossence — anything from gourmet treats to wellness essentials",
+  "Search Ossence — anything from kids' toys to creative arts",
+  "Search Ossence — anything from music to outdoor adventures",
+  "Search Ossence — anything from eco-friendly products to fitness equipment"
+];
+
+let index = 0;
+
+// Funkcija za izmjenu placeholdera
+function changePlaceholder() {
+  searchInput.placeholder = messages[index];
+  index = (index + 1) % messages.length;
+}
+
+// Početna postavka placeholdera
+changePlaceholder();
+
+// Postavi interval za izmjenu svakih 5 sekundi
+setInterval(changePlaceholder, 2500);
+
+// Sakrij sve kategorije na početku
+categories.forEach(category => {
+  category.style.display = "none";
+});
+
+searchInput.addEventListener("input", () => {
+  const filter = searchInput.value.toLowerCase();
+
+  if (filter === "") {
+    // Ako je input prazan, sakrij sve kategorije
+    categories.forEach(category => {
+      category.style.display = "none";
+    });
+  } else {
+    // Inače, prikaži samo one koje odgovaraju filteru
+    categories.forEach(category => {
+      const text = category.textContent.toLowerCase();
+      if (text.includes(filter)) {
+        category.style.display = "block";
+      } else {
+        category.style.display = "none";
+      }
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
